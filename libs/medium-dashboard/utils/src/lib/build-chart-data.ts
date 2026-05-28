@@ -28,11 +28,10 @@ export function buildChartData(medium: Medium, mode: ChartMode): MediumChartData
         entries: medium.components.map(
           (c): ChartEntry => ({
             label: c.name,
-            unit: '%',
-            refValue: null,
-            // Gap entry when reference is zero — relative change is undefined.
-            optValue:
-              c.ref_value !== 0 ? ((c.opt_value - c.ref_value) / c.ref_value) * 100 : null,
+            unit: '',
+            // Gap entry when reference is zero — ratio is undefined.
+            refValue: c.ref_value !== 0 ? 1.0 : null,
+            optValue: c.ref_value !== 0 ? c.opt_value / c.ref_value : null,
           })
         ),
       };

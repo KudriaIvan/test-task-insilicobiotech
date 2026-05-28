@@ -22,53 +22,52 @@ describe('buildChartData', () => {
         { label: 'Glutamine', unit: 'mmol/L', refValue: 2.5, optValue: 3.2 },
       ]);
     });
+
+    it('produces one entry per compound', () => {
+      const result = buildChartData(MEDIUM, 'absolute');
+
+      expect(result.entries).toHaveLength(MEDIUM.components.length);
+    });
   });
 
   describe('relative mode', () => {
-    it('calculates percentage change from ref to opt', () => {
-      const result = buildChartData(MEDIUM, 'relative');
-
-      expect(result.entries[0].optValue).toBeCloseTo(20); // (4.8 - 4.0) / 4.0 * 100
-      expect(result.entries[1].optValue).toBeCloseTo(-10); // (7.2 - 8.0) / 8.0 * 100
-      expect(result.entries[2].optValue).toBeCloseTo(28); // (3.2 - 2.5) / 2.5 * 100
-    });
-
-    it('sets refValue to null for all entries', () => {
+    it('sets refValue to 1.0 for all entries', () => {
       const result = buildChartData(MEDIUM, 'relative');
 
       result.entries.forEach((entry) => {
-        expect(entry.refValue).toBeNull();
+        expect(entry.refValue).toBe(1.0);
       });
     });
 
-    it('uses percent as unit for all entries', () => {
+    it('calculates optValue as opt / ref ratio', () => {
       const result = buildChartData(MEDIUM, 'relative');
 
-      result.entries.forEach((entry) => {
-        expect(entry.unit).toBe('%');
-      });
+      expect(result.entries[0].optValue).toBeCloseTo(1.2);  // 4.8 / 4.0
+      expect(result.entries[1].optValue).toBeCloseTo(0.9);  // 7.2 / 8.0
+      expect(result.entries[2].optValue).toBeCloseTo(1.28); // 3.2 / 2.5
     });
   });
 
-  describe('gap entries', () => {
-    it('generates a gap entry when ref_value is zero in relative mode', () => {
-      const mediumWithGap: Medium = {
+  describe('zero reference (gap entry)', () => {
+    it('returns null for both values when ref_value is zero in relative mode', () => {
+      const medium: Medium = {
         name: 'Gap Medium',
         components: [{ name: 'NewCompound', unit: 'g/L', ref_value: 0, opt_value: 1.5 }],
       };
 
-      const result = buildChartData(mediumWithGap, 'relative');
+      const result = buildChartData(medium, 'relative');
 
+      expect(result.entries[0].refValue).toBeNull();
       expect(result.entries[0].optValue).toBeNull();
     });
 
-    it('does not generate a gap entry in absolute mode for the same component', () => {
-      const mediumWithGap: Medium = {
+    it('does not affect absolute mode values', () => {
+      const medium: Medium = {
         name: 'Gap Medium',
         components: [{ name: 'NewCompound', unit: 'g/L', ref_value: 0, opt_value: 1.5 }],
       };
 
-      const result = buildChartData(mediumWithGap, 'absolute');
+      const result = buildChartData(medium, 'absolute');
 
       expect(result.entries[0].refValue).toBe(0);
       expect(result.entries[0].optValue).toBe(1.5);

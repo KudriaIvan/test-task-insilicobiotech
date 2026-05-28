@@ -3,8 +3,10 @@ import { NgxEchartsDirective } from 'ngx-echarts';
 import type { EChartsOption } from 'echarts';
 
 const DEFAULT_GRID: EChartsOption['grid'] = {
+  top: 16,
   left: 0,
   right: 0,
+  bottom: 0,
   containLabel: true,
 };
 
