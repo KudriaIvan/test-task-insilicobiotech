@@ -50,6 +50,15 @@ describe('buildChartData', () => {
       expect(compoundEntries[1].optValue).toBeCloseTo(0.9);
       expect(compoundEntries[2].optValue).toBeCloseTo(1.28);
     });
+
+    it('sets unit to × for all compound entries', () => {
+      const result = buildChartData(MEDIUM, 'relative');
+      const compoundEntries = result.entries.filter((entry) => !entry.isGap);
+
+      compoundEntries.forEach((entry) => {
+        expect(entry.unit).toBe('×');
+      });
+    });
   });
 
   describe('gap entries', () => {
