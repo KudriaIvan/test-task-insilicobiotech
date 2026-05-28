@@ -1,0 +1,4 @@
+interface:
+  display_name: "Google Comment Style"
+  short_description: "Draft AI and review comments in Google style"
+  default_prompt: "Use $google-comment-style to draft concise code review comments for this change."
