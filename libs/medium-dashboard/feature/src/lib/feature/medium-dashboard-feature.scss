@@ -1,5 +1,7 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--tui-height-xs);
   padding-block: var(--tui-height-xs);
 }
 
@@ -11,4 +13,9 @@
     flex: 0 1 300px;
     justify-content: center;
   }
+}
+
+.chart-skeleton {
+  height: 400px;
+  border-radius: var(--tui-radius-l);
 }

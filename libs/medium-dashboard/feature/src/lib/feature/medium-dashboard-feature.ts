@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TuiGroup } from '@taiga-ui/core';
-import { TuiBlock } from '@taiga-ui/kit';
+import { TuiBlock, TuiSkeleton } from '@taiga-ui/kit';
 import { TuiRadio } from '@taiga-ui/core';
 
 import { MediumDashboardStore } from '@test-task-insilicobiotech/medium-dashboard/data-access';
@@ -11,7 +11,7 @@ import { buildChartData, toEChartsOptions } from '@test-task-insilicobiotech/med
 
 @Component({
   selector: 'lib-medium-dashboard-feature',
-  imports: [FormsModule, TuiGroup, TuiBlock, TuiRadio, MediumChartComponent],
+  imports: [FormsModule, TuiGroup, TuiBlock, TuiRadio, TuiSkeleton, MediumChartComponent],
   templateUrl: './medium-dashboard-feature.html',
   styleUrl: './medium-dashboard-feature.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

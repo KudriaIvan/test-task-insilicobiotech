@@ -1,5 +1,5 @@
 <div tuiGroup class="mode-toggle">
-  <label tuiBlock>
+  <label tuiBlock [tuiSkeleton]="isLoading()">
     <input
       tuiRadio
       type="radio"
@@ -11,7 +11,7 @@
     />
     Absolute
   </label>
-  <label tuiBlock>
+  <label tuiBlock [tuiSkeleton]="isLoading()">
     <input
       tuiRadio
       type="radio"
@@ -25,10 +25,12 @@
   </label>
 </div>
 
-@if (isLoading()) {
-  <p>Loading...</p>
-} @else if (error()) {
+@if (error()) {
   <p>{{ error() }}</p>
-} @else if (chartOptions(); as options) {
-  <lib-medium-chart [options]="options" />
+} @else {
+  <div [tuiSkeleton]="isLoading()" class="chart-skeleton">
+    @if (chartOptions(); as options) {
+      <lib-medium-chart [options]="options" />
+    }
+  </div>
 }
