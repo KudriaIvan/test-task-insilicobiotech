@@ -5,7 +5,11 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "lint": "nx run-many -t lint --all",
+    "format": "nx format:write",
+    "format:check": "nx format:check",
+    "check": "nx format:check && nx run-many -t lint --all && nx run-many -t test,build --projects=test-task-insilicobiotech"
   },
   "private": true,
   "dependencies": {
