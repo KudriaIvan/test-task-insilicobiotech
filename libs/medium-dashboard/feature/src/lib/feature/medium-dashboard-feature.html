@@ -1,2 +1,34 @@
+<div tuiGroup class="mode-toggle">
+  <label tuiBlock>
+    <input
+      tuiRadio
+      type="radio"
+      name="chart-mode"
+      value="absolute"
+      [ngModel]="mode()"
+      [ngModelOptions]="{standalone: true}"
+      (ngModelChange)="mode.set($event)"
+    />
+    Absolute
+  </label>
+  <label tuiBlock>
+    <input
+      tuiRadio
+      type="radio"
+      name="chart-mode"
+      value="relative"
+      [ngModel]="mode()"
+      [ngModelOptions]="{standalone: true}"
+      (ngModelChange)="mode.set($event)"
+    />
+    Relative
+  </label>
+</div>
 
-<p>Feature works!</p>
+@if (isLoading()) {
+  <p>Loading...</p>
+} @else if (error()) {
+  <p>{{ error() }}</p>
+} @else if (chartOptions(); as options) {
+  <lib-medium-chart [options]="options" />
+}

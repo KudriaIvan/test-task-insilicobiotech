@@ -35,6 +35,9 @@
       "@test-task-insilicobiotech/medium-dashboard/utils": [
         "./libs/medium-dashboard/utils/src/index.ts"
       ],
+      "@test-task-insilicobiotech/medium-dashboard/ui/chart": [
+        "./libs/medium-dashboard/ui/chart/src/index.ts"
+      ],
     }
   },
   "exclude": ["node_modules", "tmp"]

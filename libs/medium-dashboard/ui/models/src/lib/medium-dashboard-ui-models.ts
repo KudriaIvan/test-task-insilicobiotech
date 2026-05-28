@@ -9,6 +9,4 @@ export interface ChartEntry {
 
 export interface MediumChartData {
   entries: ChartEntry[];
-  yAxisLabel: string;
-  showReferenceLine: boolean;
 }

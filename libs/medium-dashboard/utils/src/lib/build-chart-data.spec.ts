@@ -22,13 +22,6 @@ describe('buildChartData', () => {
         { label: 'Glutamine', unit: 'mmol/L', refValue: 2.5, optValue: 3.2 },
       ]);
     });
-
-    it('sets yAxisLabel to empty string and disables reference line', () => {
-      const result = buildChartData(MEDIUM, 'absolute');
-
-      expect(result.yAxisLabel).toBe('');
-      expect(result.showReferenceLine).toBe(false);
-    });
   });
 
   describe('relative mode', () => {
@@ -54,13 +47,6 @@ describe('buildChartData', () => {
       result.entries.forEach((entry) => {
         expect(entry.unit).toBe('%');
       });
-    });
-
-    it('sets yAxisLabel and enables reference line', () => {
-      const result = buildChartData(MEDIUM, 'relative');
-
-      expect(result.yAxisLabel).toBe('Change (%)');
-      expect(result.showReferenceLine).toBe(true);
     });
   });
 

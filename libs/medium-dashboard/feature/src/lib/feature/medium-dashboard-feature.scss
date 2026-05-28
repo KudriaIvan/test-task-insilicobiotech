@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  padding-block: var(--tui-height-xs);
+}
+
+.mode-toggle {
+  display: flex;
+  justify-content: center;
+
+  label {
+    flex: 0 1 300px;
+    justify-content: center;
+  }
+}

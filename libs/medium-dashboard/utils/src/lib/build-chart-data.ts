@@ -21,8 +21,6 @@ export function buildChartData(medium: Medium, mode: ChartMode): MediumChartData
             optValue: c.opt_value,
           })
         ),
-        yAxisLabel: '',
-        showReferenceLine: false,
       };
 
     case 'relative':
@@ -37,8 +35,6 @@ export function buildChartData(medium: Medium, mode: ChartMode): MediumChartData
               c.ref_value !== 0 ? ((c.opt_value - c.ref_value) / c.ref_value) * 100 : null,
           })
         ),
-        yAxisLabel: 'Change (%)',
-        showReferenceLine: true,
       };
 
     default:
