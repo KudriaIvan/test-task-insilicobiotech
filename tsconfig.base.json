@@ -32,6 +32,9 @@
       "@test-task-insilicobiotech/medium-dashboard/data-access": [
         "./libs/medium-dashboard/data-access/src/index.ts"
       ],
+      "@test-task-insilicobiotech/medium-dashboard/utils": [
+        "./libs/medium-dashboard/utils/src/index.ts"
+      ],
     }
   },
   "exclude": ["node_modules", "tmp"]

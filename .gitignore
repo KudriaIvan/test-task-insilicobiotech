@@ -45,3 +45,5 @@ Thumbs.db
 
 .nx/polygraph
 .angular
+.mcp.json
+.claude/tasks
