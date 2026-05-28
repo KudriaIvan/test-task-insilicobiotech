@@ -5,6 +5,7 @@ export interface ChartEntry {
   unit: string;
   optValue: number | null;
   refValue: number | null;
+  isGap?: boolean;
 }
 
 export interface MediumChartData {

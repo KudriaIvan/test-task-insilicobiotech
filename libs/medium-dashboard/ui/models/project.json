@@ -3,17 +3,5 @@
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/medium-dashboard/ui/models/src",
   "projectType": "library",
-  "tags": ["type:models"],
-  "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/medium-dashboard/ui/models",
-        "main": "libs/medium-dashboard/ui/models/src/index.ts",
-        "tsConfig": "libs/medium-dashboard/ui/models/tsconfig.lib.json",
-        "assets": ["libs/medium-dashboard/ui/models/*.md"]
-      }
-    }
-  }
+  "tags": ["type:models"]
 }

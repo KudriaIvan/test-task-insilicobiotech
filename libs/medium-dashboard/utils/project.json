@@ -5,16 +5,6 @@
   "projectType": "library",
   "tags": ["type:utils"],
   "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/medium-dashboard/utils",
-        "main": "libs/medium-dashboard/utils/src/index.ts",
-        "tsConfig": "libs/medium-dashboard/utils/tsconfig.lib.json",
-        "assets": ["libs/medium-dashboard/utils/*.md"]
-      }
-    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

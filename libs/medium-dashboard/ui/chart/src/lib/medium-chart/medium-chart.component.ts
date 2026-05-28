@@ -1,14 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, input, type Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { NgxEchartsDirective } from 'ngx-echarts';
 import type { EChartsOption } from 'echarts';
-
-const DEFAULT_GRID: EChartsOption['grid'] = {
-  top: 16,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  containLabel: true,
-};
 
 @Component({
   selector: 'lib-medium-chart',
@@ -19,9 +11,4 @@ const DEFAULT_GRID: EChartsOption['grid'] = {
 })
 export class MediumChartComponent {
   readonly options = input.required<EChartsOption>();
-
-  protected readonly mergedOptions: Signal<EChartsOption> = computed(() => ({
-    grid: DEFAULT_GRID,
-    ...this.options(),
-  }));
 }
