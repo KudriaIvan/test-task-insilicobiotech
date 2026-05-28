@@ -10,10 +10,10 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '',
-        loadComponent: () =>
+        loadChildren: () =>
           import(
             '@test-task-insilicobiotech/medium-dashboard/feature'
-          ).then((m) => m.MediumDashboardFeature),
+          ).then((m) => m.mediumDashboardRoutes),
       },
     ],
   },

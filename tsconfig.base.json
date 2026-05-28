@@ -28,7 +28,10 @@
       ],
       "@test-task-insilicobiotech/medium-dashboard/ui/models": [
         "./libs/medium-dashboard/ui/models/src/index.ts"
-      ]
+      ],
+      "@test-task-insilicobiotech/medium-dashboard/data-access": [
+        "./libs/medium-dashboard/data-access/src/index.ts"
+      ],
     }
   },
   "exclude": ["node_modules", "tmp"]
