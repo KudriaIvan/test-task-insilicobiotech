@@ -19,6 +19,15 @@
       ],
       "@test-task-insilicobiotech/shared/layout/main-header/feature": [
         "./libs/shared/layout/main-header/feature/src/index.ts"
+      ],
+      "@test-task-insilicobiotech/medium-dashboard/models": [
+        "./libs/medium-dashboard/models/src/index.ts"
+      ],
+      "@test-task-insilicobiotech/medium-dashboard/feature": [
+        "./libs/medium-dashboard/feature/src/index.ts"
+      ],
+      "@test-task-insilicobiotech/medium-dashboard/ui/models": [
+        "./libs/medium-dashboard/ui/models/src/index.ts"
       ]
     }
   },
